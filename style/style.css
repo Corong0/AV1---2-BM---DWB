@@ -1,173 +1,266 @@
 /* ==================== RESET & BASE ==================== */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    min-height: 100vh;
-    padding: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* ==================== CONTAINER ==================== */
 .container {
-    background: white;
-    border-radius: 20px;
-    padding: 25px 30px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  background: white;
+  border-radius: 20px;
+  padding: 25px 30px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
 }
 
 .subtitle {
-    font-size: 0.95em;
-    margin-bottom: 20px;
+  font-size: 0.95em;
+  margin-bottom: 20px;
+  color: #666;
 }
 
 /* ==================== SCORE BOARD ==================== */
 .score-board {
-    background-color: #f0f0f0;
-    border-radius: 10px;
-    margin-bottom: 20px !important;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  margin-bottom: 20px !important;
 }
 
 /* ==================== GAME AREA ==================== */
 .game-area {
-    margin-bottom: 20px;
-    flex-wrap: nowrap;
-    gap: 15px !important;
+  margin-bottom: 20px;
+  flex-wrap: nowrap;
+  gap: 15px !important;
 }
 
-.country-card {
-    background: #f9f9f9;
-    border-radius: 15px;
-    padding: 15px;
-    text-align: center;
-    border: 3px solid #ddd;
-    transition: transform 0.2s, border-color 0.2s;
-    flex: 0 0 48%;
+..country-card {
+  position: relative;
+  background: #f9f9f9;
+  border-radius: 15px;
+  padding: 18px;
+  text-align: center;
+  border: 3px solid #ddd;
+  transition:
+    transform 0.2s,
+    border-color 0.2s,
+    box-shadow 0.2s;
+  flex: 0 0 48%;
 }
 
 .country-card:hover {
-    transform: translateY(-5px);
-    border-color: #667eea;
+  transform: translateY(-5px);
+  border-color: #667eea;
+  box-shadow: 0 12px 24px rgba(102, 126, 234, 0.16);
+}
+
+.details-button {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  padding: 0.35rem 0.8rem;
+  font-size: 0.82rem;
+  background-color: #0d6efd;
+  color: #ffffff !important;
+  border-color: #0d6efd;
+  box-shadow: 0 4px 14px rgba(13, 110, 253, 0.25);
+}
+
+.details-button:hover {
+  background-color: #0b5ed7;
+  border-color: #0a58ca;
+  color: #ffffff !important;
 }
 
 .country-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-    margin-bottom: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 10px;
 }
 
 .flag {
-    margin-bottom: 5px;
-    height: 70px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  margin-bottom: 5px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .flag img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 12px;
 }
 
 h2 {
-    color: #333;
-    margin-bottom: 10px;
-    font-size: 1.3em;
+  color: #333;
+  font-size: 1.3em;
 }
 
 .population {
-    color: #666;
-    font-size: 0.85em;
-    margin-bottom: 10px;
-    padding: 6px;
-    background: #e8e8e8;
-    border-radius: 8px;
-    display: none;
+  color: #666;
+  font-size: 0.95em;
+  margin-bottom: 10px;
+  padding: 10px;
+  background: #e8e8e8;
+  border-radius: 8px;
+  display: none;
 }
 
 .vs {
-    font-weight: bold;
-    color: #667eea;
+  font-weight: bold;
+  color: #1e3aa5;
+}
+
+.country-list {
+  max-height: 360px;
+  overflow-y: auto;
+  margin-top: 20px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  background: #ffffff;
+}
+
+.country-list a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  color: #333;
+  text-decoration: none;
+  border-bottom: 1px solid #eee;
+}
+
+.country-list a:hover {
+  background: #f1f4ff;
+}
+
+.country-list a:last-child {
+  border-bottom: none;
+}
+
+.details-card {
+  background: #f9f9f9;
+  border-radius: 18px;
+  padding: 25px;
+  border: 3px solid #ddd;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.12);
+}
+
+.details-grid {
+  display: grid;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #e4e4e4;
+}
+
+.label {
+  font-weight: 700;
+  color: #333;
+}
+
+.value {
+  color: #555;
+  text-align: right;
 }
 
 /* ==================== BUTTONS ==================== */
 .choice-btn {
-    padding: 12px 25px;
-    font-size: 1em;
-    transition: transform 0.2s;
+  padding: 12px 25px;
+  font-size: 1em;
+  transition: transform 0.2s;
 }
 
 .choice-btn:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
 
 .choice-btn:active {
-    transform: scale(0.98);
+  transform: scale(0.98);
 }
 
 #nextBtn {
-    margin: 15px auto 0 !important;
-    transition: transform 0.2s;
+  margin: 15px auto 0 !important;
+  transition: transform 0.2s;
 }
 
 #nextBtn:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
 
 #nextBtn:active {
-    transform: scale(0.98);
+  transform: scale(0.98);
 }
 
 /* ==================== MESSAGE ==================== */
 .message {
-    text-align: center;
-    font-size: 1em;
-    font-weight: bold;
-    padding: 12px;
-    min-height: 30px;
-    border-radius: 10px;
-    margin-bottom: 15px !important;
+  text-align: center;
+  font-size: 1em;
+  font-weight: bold;
+  padding: 12px;
+  min-height: 30px;
+  border-radius: 10px;
+  margin-bottom: 15px !important;
 }
 
 .message.correct {
-    color: #27ae60;
-    background: #d4edda;
+  color: #1f7a2e;
+  background: #d4edda;
 }
 
 .message.incorrect {
-    color: #c0392b;
-    background: #f8d7da;
+  color: #a61d24;
+  background: #f8d7da;
+}
+
+.error-box {
+  margin-top: 15px;
+  padding: 15px;
+  border-radius: 12px;
+  color: #842029;
+  background: #f8d7da;
+  border: 1px solid #f5c2c7;
 }
 
 /* ==================== RESPONSIVE ==================== */
-/* Bootstrap já cuida da responsividade com as classes col-md-5 */
-.vs {
-    font-weight: bold;
-    color: #667eea;
-}
-
 @media (max-width: 768px) {
-    .container {
-        padding: 20px 20px;
-    }
+  .container {
+    padding: 20px;
+  }
 
-    .country-card {
-        flex: 0 0 40%;
-    }
+  .game-area {
+    flex-wrap: wrap;
+  }
 
-    .choice-btn {
-        padding: 8px 15px;
-        font-size: 0.9em;
-    }
+  .country-card {
+    flex: 1 1 100%;
+  }
+
+  .choice-btn {
+    padding: 10px 18px;
+    font-size: 0.95em;
+  }
 }

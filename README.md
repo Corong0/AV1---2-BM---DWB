@@ -1,57 +1,57 @@
 # 🌍 Higher or Lower - Countries Game
 
-Um jogo interativo onde você deve adivinhar qual país tem a maior população entre dois países apresentados.
+Jogo educativo que compara a população de países usando a API REST Countries. O projeto inclui o jogo principal e uma página de detalhes que busca informações específicas de cada país selecionado.
 
 ## 📁 Estrutura do Projeto
 
 ```
-RayAV1/
-├── index.html          # Arquivo principal (HTML)
+av1-dwb-nome-sobrenome-2bimestre/
+├── index.html
+├── detalhes.html
 ├── js/
-│   └── script.js       # Lógica do jogo (JavaScript)
+│   ├── api.js
+│   ├── detalhes.js
+│   └── script.js
 ├── style/
-│   └── style.css       # Estilos (CSS)
-└── README.md          # Este arquivo
+│   └── style.css
+└── README.md
 ```
 
-## 🎮 Como Funciona
+## 🎯 Funcionalidades
 
-1. **Carregamento**: O jogo busca dados de todos os países da API REST Countries
-2. **Rodada**: Dois países são exibidos com suas bandeiras
-3. **Escolha**: Você clica em "Esquerda" ou "Direita" para escolher qual tem maior população
-4. **Resultado**: 
-   - ✅ **Acerto**: +1 ponto, mostra as populações, e você continua
-   - ❌ **Erro**: Game Over, mostra as populações reais, clique "Novo Jogo" para reiniciar
+- Jogo "Higher or Lower" usando dados reais de população
+- Botão "Detalhes" na caixa de cada país do jogo
+- Navegação por lista de países para visualizar detalhes individuais
+- Uso de `URLSearchParams` para enviar o código do país pela URL
+- Nova requisição à API para buscar dados específicos do país selecionado
+- Código organizado em módulos JavaScript
 
-## 🚀 Como Usar
+## 🚀 Como usar
 
-1. Abra `index.html` em seu navegador
-2. Clique nos botões para escolher qual país tem maior população
-3. Compete e veja quantas rodadas consegue ganhar!
+1. Abra `index.html` em um navegador.
+2. Aguarde o carregamento dos países.
+3. Escolha o país com maior população ou clique em "Detalhes" para ver informações completas.
 
-## 🛠️ Tecnologias Utilizadas
+> Se o navegador bloquear módulos JS via `file://`, use um servidor local (`Live Server`, `python -m http.server`, etc.).
 
-- **HTML5**: Estrutura da página
-- **CSS3**: Estilos responsivos com gradiente
-- **JavaScript**: Lógica do jogo e integração com API
-- **API REST Countries**: Dados dos países (https://restcountries.com)
-- **Flag CDN**: Imagens das bandeiras (https://flagcdn.com)
+## 🛠️ Tecnologias utilizadas
 
-## 📊 Recursos
+- HTML5
+- CSS3
+- JavaScript moderno com módulos
+- API REST Countries (`https://restcountries.com`)
+- Bootstrap 5
 
-- ✅ Bandeiras reais dos países
-- ✅ Comparação de populações
-- ✅ Sistema de pontuação
-- ✅ Design responsivo (desktop e mobile)
-- ✅ Código bem organizado e comentado
+## 📌 Recursos
 
-## 📝 Notas
+- Lista de países navegável
+- Página de detalhes com bandeira, capital, região, sub-região, idiomas e moedas
+- Feedback de carregamento e de erro
+- Código modularizado e fácil de manter
+- Interface responsiva
 
-- A API fornece dados em tempo real
-- O jogo é infinito - continue jogando enquanto conseguir acertar
-- Os números são formatados com separador de milhares
-- A interface é acessível e fácil de usar
+## 💡 Observações
 
-## 📧 Autor
-
-Desenvolvido como um jogo educativo usando API pública de países.
+- A página de detalhes sempre faz nova requisição ao país escolhido.
+- A lista de países não revela população para não prejudicar o jogo.
+- A API é chamada via `js/api.js`, deixando o código mais organizado.
